@@ -68,7 +68,7 @@ const Hero: FC = () => {
   ];
 
   return (
-    <div className='bg-linear-to-r from-primary-600 to-primary-700 text-white py-12 md:py-24'>
+    <div className='bg-linear-to-r from-primary-600 to-primary-700 text-white py-12 lg:py-24 lg:px-24'>
       <div className='container mx-auto px-4'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
           {/* Left section with title and search */}
@@ -99,7 +99,7 @@ const Hero: FC = () => {
           </div>
 
           {/* Right section with quick access services */}
-          <div className='bg-white/10 backdrop-blur-xs rounded-xl p-6 shadow-lg animate-slide-in'>
+          <div className='backdrop-blur-xs rounded-xl p-6 shadow-lg animate-slide-in'>
             <h2 className='text-2xl font-semibold mb-4'>
               {t('services.title')}
             </h2>
@@ -108,9 +108,9 @@ const Hero: FC = () => {
                 to={`/services?category=${findCategorySlug(
                   'Certificates and IDs'
                 )}`}
-                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center'
+                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex gap-2 items-center text-center'
               >
-                <div className='bg-primary-500 p-3 rounded-full mb-3'>
+                <div className='bg-primary-500 p-3 rounded-full'>
                   <svg
                     className='h-6 w-6 text-white'
                     viewBox='0 0 24 24'
@@ -130,9 +130,9 @@ const Hero: FC = () => {
                 to={`/services?category=${findCategorySlug(
                   'Business and Trade'
                 )}`}
-                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center'
+                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex gap-2 items-center text-center'
               >
-                <div className='bg-primary-500 p-3 rounded-full mb-3'>
+                <div className='bg-primary-500 p-3 rounded-full'>
                   <svg
                     className='h-6 w-6 text-white'
                     viewBox='0 0 24 24'
@@ -157,9 +157,9 @@ const Hero: FC = () => {
               </Link>
               <Link
                 to={`/services?category=${findCategorySlug('Education')}`}
-                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex flex-col items-center text-center'
+                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-200 flex gap-2 items-center text-center'
               >
-                <div className='bg-primary-500 p-3 rounded-full mb-3'>
+                <div className='bg-primary-500 p-3 rounded-full'>
                   <svg
                     className='h-6 w-6 text-white'
                     viewBox='0 0 24 24'
@@ -177,9 +177,9 @@ const Hero: FC = () => {
               </Link>
               <Link
                 to={`/services?category=${findCategorySlug('Health')}`}
-                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-500 flex flex-col items-center text-center'
+                className='bg-white/10 hover:bg-white/20 rounded-lg p-4 transition-all duration-500 flex gap-2 items-center text-center'
               >
-                <div className='bg-primary-500 p-3 rounded-full mb-3'>
+                <div className='bg-primary-500 p-3 rounded-full'>
                   <svg
                     className='h-6 w-6 text-white'
                     viewBox='0 0 24 24'

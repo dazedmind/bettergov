@@ -9,10 +9,11 @@ import {
   Stats,
 } from 'react-instantsearch';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
+import type { BaseHit, Hit, SearchClient } from 'instantsearch.js';
 import 'instantsearch.css/themes/satellite.css'; // Or your preferred theme
 import './MeilisearchInstantSearch.css'; // For custom styles
 
-interface SearchHit {
+interface SearchHit extends Hit<BaseHit> {
   objectID: string;
   name?: string;
   office_name?: string;
@@ -130,7 +131,11 @@ const Hit: FC<HitProps> = ({ hit }) => {
           {hit.category && (
             <span>
               <Highlight
-                attribute={hit.category?.name ? 'category.name' : 'category'}
+                attribute={
+                  typeof hit.category === 'object' && hit.category.name
+                    ? 'category.name'
+                    : 'category'
+                }
                 hit={hit as SearchHit}
               />
               {' > '}
@@ -140,7 +145,9 @@ const Hit: FC<HitProps> = ({ hit }) => {
             <span>
               <Highlight
                 attribute={
-                  hit.subcategory?.name ? 'subcategory.name' : 'subcategory'
+                  typeof hit.subcategory === 'object' && hit.subcategory.name
+                    ? 'subcategory.name'
+                    : 'subcategory'
                 }
                 hit={hit as SearchHit}
               />{' '}
@@ -198,7 +205,7 @@ const MeilisearchInstantSearch: FC = () => {
 
   return (
     <InstantSearch
-      searchClient={searchClient}
+      searchClient={searchClient as unknown as SearchClient}
       indexName='bettergov'
       initialUiState={{
         bettergov: {
@@ -208,7 +215,7 @@ const MeilisearchInstantSearch: FC = () => {
       }}
     >
       <Configure hitsPerPage={10} />
-      <div className='ais-InstantSearch rounded-lg'>
+      <div className='ais-InstantSearch rounded-full'>
         <div className='mb-2 w-full' ref={searchContainerRef}>
           <SearchBox
             placeholder='Search for services, directory items...'
@@ -218,7 +225,7 @@ const MeilisearchInstantSearch: FC = () => {
               root: 'mb-2',
               form: 'relative',
               input:
-                'w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-hidden transition duration-150 ease-in-out',
+                'w-full p-3 pl-10 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-hidden transition duration-150 ease-in-out',
               submit:
                 'absolute top-0 right-0 h-full px-3 text-gray-800 hover:text-blue-600',
               reset:

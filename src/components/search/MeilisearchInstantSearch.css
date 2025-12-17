@@ -33,6 +33,7 @@
 /* Ensure SearchBox input has good contrast and size */
 .ais-SearchBox-input {
   font-size: 1rem;
+  border-radius: 100px;
   /* Ensure space for right action buttons; left aligns like normal when typing */
   padding: 0.75rem 5rem 0.75rem 1rem;
 }

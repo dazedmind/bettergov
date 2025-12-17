@@ -43,7 +43,7 @@ const AboutPhilippines: FC = () => {
   return (
     <div className='min-h-screen bg-gray-50'>
       {/* Hero Section */}
-      <div className='relative h-[60vh] overflow-hidden'>
+      <div className='relative h-[60vh] overflow-hidden lg:px-24'>
         <div className='absolute inset-0'>
           <img
             src='https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg'
@@ -67,7 +67,7 @@ const AboutPhilippines: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className='container mx-auto px-4 py-12'>
+      <div className='container mx-auto px-4 py-12 lg:px-24'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Quick Facts */}
           <div className='lg:col-span-2 space-y-8'>
@@ -78,11 +78,9 @@ const AboutPhilippines: FC = () => {
               <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 {facts.map((fact, index) => (
                   <Card key={index}>
-                    <CardContent className='p-6'>
+                    <CardContent className='p-6 bg-primary-500/20 border'>
                       <div className='flex items-start space-x-4'>
-                        <div className='p-3 bg-primary-100 rounded-lg text-primary-600'>
-                          {fact.icon}
-                        </div>
+                        <div className=''>{fact.icon}</div>
                         <div>
                           <h3 className='text-lg font-semibold text-gray-900 mb-2'>
                             {fact.title}
@@ -123,7 +121,7 @@ const AboutPhilippines: FC = () => {
                 </h3>
                 <div className='space-y-3'>
                   <div>
-                    <div className='text-sm font-medium text-gray-800'>
+                    <div className='text-sm font-medium text-gray-600'>
                       {t('about.keyInformation.items.officialLanguages.label')}
                     </div>
                     <div className='text-gray-900'>
@@ -131,7 +129,7 @@ const AboutPhilippines: FC = () => {
                     </div>
                   </div>
                   <div>
-                    <div className='text-sm font-medium text-gray-800'>
+                    <div className='text-sm font-medium text-gray-600'>
                       {t('about.keyInformation.items.government.label')}
                     </div>
                     <div className='text-gray-900'>
@@ -139,7 +137,7 @@ const AboutPhilippines: FC = () => {
                     </div>
                   </div>
                   <div>
-                    <div className='text-sm font-medium text-gray-800'>
+                    <div className='text-sm font-medium text-gray-600'>
                       {t('about.keyInformation.items.currency.label')}
                     </div>
                     <div className='text-gray-900'>
@@ -147,7 +145,7 @@ const AboutPhilippines: FC = () => {
                     </div>
                   </div>
                   <div>
-                    <div className='text-sm font-medium text-gray-800'>
+                    <div className='text-sm font-medium text-gray-600'>
                       {t('about.keyInformation.items.timeZone.label')}
                     </div>
                     <div className='text-gray-900'>
@@ -155,7 +153,7 @@ const AboutPhilippines: FC = () => {
                     </div>
                   </div>
                   <div>
-                    <div className='text-sm font-medium text-gray-800'>
+                    <div className='text-sm font-medium text-gray-600'>
                       {t('about.keyInformation.items.majorCities.label')}
                     </div>
                     <div className='text-gray-900'>

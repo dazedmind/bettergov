@@ -23,8 +23,8 @@ const CriticalHotlinesWidget: FC<CriticalHotlinesWidgetProps> = ({
   );
 
   return (
-    <div className='bg-white rounded-lg shadow-md overflow-hidden border border-gray-200'>
-      <div className='bg-red-600 px-4 py-3 flex items-center justify-between'>
+    <div className='bg-white rounded-lg shadow-md overflow-hidden border h-full border-gray-200'>
+      <div className='bg-red-600 px-4 py-6 flex items-center justify-between'>
         <div className='flex items-center'>
           <AlertCircleIcon className='h-5 w-5 text-white mr-2' />
           <h3 className='font-bold text-white'>Critical Emergency Hotlines</h3>
@@ -37,11 +37,13 @@ const CriticalHotlinesWidget: FC<CriticalHotlinesWidgetProps> = ({
         </Link>
       </div>
 
-      <div className='p-4'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+      <div className='p-6'>
+        <div className='grid grid-cols-1 gap-4'>
           {displayedHotlines.map((hotline, index) => (
             <div key={index} className='flex flex-col'>
-              <span className='font-medium text-gray-900'>{hotline.name}</span>
+              <span className='font-bold text-lg text-gray-900'>
+                {hotline.name}
+              </span>
               <div className='mt-1 space-y-1'>
                 {hotline.numbers.map((number, idx) => (
                   <a
@@ -49,8 +51,8 @@ const CriticalHotlinesWidget: FC<CriticalHotlinesWidgetProps> = ({
                     href={`tel:${number.replace(/\D/g, '')}`}
                     className='flex items-center text-blue-600 hover:underline'
                   >
-                    <PhoneIcon className='h-3 w-3 mr-1' />
-                    <span className='text-sm'>{number}</span>
+                    <PhoneIcon className='h-4 w-4 mr-1' />
+                    <span className='text-md'>{number}</span>
                   </a>
                 ))}
               </div>

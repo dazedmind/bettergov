@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Card, CardContent } from '../ui/Card';
+import { Card } from '../ui/Card';
 import { useTranslation } from 'react-i18next';
 
 const GovernmentSection: FC = () => {
@@ -23,6 +23,8 @@ const GovernmentSection: FC = () => {
           <path d='M12 17.8L5.8 21 7 14.1 2 9.3l7-1L12 2l3 6.3 7 1-5 4.8 1.2 6.9-6.2-3.2z'></path>
         </svg>
       ),
+      image:
+        'https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/iohofxdjvly3h69yfiwv/San%20Miguel%20%2B%20Malaca%C3%B1ang%20Palace%20Guided%20Walking%20Tour%20in%20Manila%2C%20Philippines.jpg',
       link: '/government/executive',
     },
     {
@@ -43,6 +45,8 @@ const GovernmentSection: FC = () => {
           <path d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'></path>
         </svg>
       ),
+      image:
+        'https://www.bworldonline.com/wp-content/uploads/2021/08/Congress-072417-PCOO.jpg',
       link: '/government/legislative',
     },
     {
@@ -65,12 +69,14 @@ const GovernmentSection: FC = () => {
           <path d='M5 16h14'></path>
         </svg>
       ),
+      image:
+        'https://sc.judiciary.gov.ph/wp-content/uploads/2023/05/SC-Facade-768x312.png',
       link: '/government/judiciary',
     },
   ];
 
   return (
-    <section className='py-12 bg-white'>
+    <section className='py-12 lg:px-24 bg-white'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-12'>
           <h2 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
@@ -84,31 +90,40 @@ const GovernmentSection: FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           {branches.map(branch => (
             <Card key={branch.id} hoverable className='text-center'>
-              <CardContent className='p-6'>
-                <div className='flex justify-center mb-4'>{branch.icon}</div>
-                <h3 className='text-xl font-semibold mb-2 text-gray-900'>
-                  {branch.title}
-                </h3>
-                <p className='text-gray-800 mb-4'>{branch.description}</p>
-                <a
-                  href={branch.link}
-                  className='text-primary-600 hover:text-primary-700 font-medium inline-flex items-center transition-colors'
-                >
-                  {t('government.learnMore')}
-                  <svg
-                    className='ml-1 h-4 w-4'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+              <div>
+                <div className='relative'>
+                  <img
+                    src={branch.image}
+                    alt={branch.title}
+                    className='w-full h-56 object-cover'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-white to-transparent pointer-events-none'></div>
+                </div>
+                <div className='p-6'>
+                  <h3 className='text-xl font-semibold mb-2 text-gray-900'>
+                    {branch.title}
+                  </h3>
+                  <p className='text-gray-800 mb-4'>{branch.description}</p>
+                  <a
+                    href={branch.link}
+                    className='text-primary-600 hover:text-primary-700 font-medium inline-flex items-center transition-colors'
                   >
-                    <line x1='5' y1='12' x2='19' y2='12'></line>
-                    <polyline points='12 5 19 12 12 19'></polyline>
-                  </svg>
-                </a>
-              </CardContent>
+                    {t('government.learnMore')}
+                    <svg
+                      className='ml-1 h-4 w-4'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                    >
+                      <line x1='5' y1='12' x2='19' y2='12'></line>
+                      <polyline points='12 5 19 12 12 19'></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </Card>
           ))}
         </div>

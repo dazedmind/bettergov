@@ -9,7 +9,7 @@ const NewsSection: FC = () => {
   const { t } = useTranslation('common');
 
   return (
-    <section className='py-12 bg-gray-50'>
+    <section className='py-12 lg:px-24 bg-gray-50'>
       <div className='container mx-auto px-4'>
         <div className='flex justify-between items-center mb-8'>
           <h2 className='text-2xl md:text-3xl font-bold text-gray-900'>

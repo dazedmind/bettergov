@@ -11,7 +11,7 @@ import { Card, CardContent } from '../../../components/ui/Card';
 const PhilippinesCulture: FC = () => {
   const culturalAspects = [
     {
-      icon: <Music2Icon className='h-6 w-6' />,
+      icon: <Music2Icon className='h-4 w-4 lg:h-6 lg:w-6' />,
       title: 'Music and Dance',
       description:
         'Traditional and modern Filipino performing arts, from Tinikling to contemporary OPM',
@@ -19,14 +19,14 @@ const PhilippinesCulture: FC = () => {
         'https://images.pexels.com/photos/5299821/pexels-photo-5299821.jpeg',
     },
     {
-      icon: <UtensilsIcon className='h-6 w-6' />,
+      icon: <UtensilsIcon className='h-4 w-4 lg:h-6 lg:w-6' />,
       title: 'Cuisine',
       description:
         'Rich culinary traditions blending native, Chinese, Spanish, and American influences',
       image: 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg',
     },
     {
-      icon: <HeartIcon className='h-6 w-6' />,
+      icon: <HeartIcon className='h-4 w-4 lg:h-6 lg:w-6' />,
       title: 'Festivals',
       description:
         'Vibrant celebrations showcasing Filipino faith, culture, and community spirit',
@@ -34,7 +34,7 @@ const PhilippinesCulture: FC = () => {
         'https://images.pexels.com/photos/2663163/pexels-photo-2663163.jpeg',
     },
     {
-      icon: <UsersIcon className='h-6 w-6' />,
+      icon: <UsersIcon className='h-4 w-4 lg:h-6 lg:w-6' />,
       title: 'Social Values',
       description:
         'Strong family ties, respect for elders, and the spirit of Bayanihan',
@@ -42,7 +42,7 @@ const PhilippinesCulture: FC = () => {
         'https://images.pexels.com/photos/32326425/pexels-photo-32326425.jpeg',
     },
     {
-      icon: <PaletteIcon className='h-6 w-6' />,
+      icon: <PaletteIcon className='h-4 w-4 lg:h-6 lg:w-6' />,
       title: 'Arts and Crafts',
       description:
         'Traditional weaving, pottery, and contemporary Filipino visual arts',
@@ -54,7 +54,7 @@ const PhilippinesCulture: FC = () => {
   return (
     <div className='min-h-screen bg-gray-50'>
       {/* Hero Section */}
-      <div className='relative h-[60vh] overflow-hidden'>
+      <div className='relative h-[60vh] overflow-hidden lg:px-24'>
         <div className='absolute inset-0'>
           <img
             src='https://images.pexels.com/photos/20380277/pexels-photo-20380277.jpeg'
@@ -79,7 +79,7 @@ const PhilippinesCulture: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className='container mx-auto px-4 py-12'>
+      <div className='container mx-auto px-4 py-12 lg:px-24'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Cultural Aspects */}
           <div className='lg:col-span-2'>
@@ -90,26 +90,26 @@ const PhilippinesCulture: FC = () => {
               <div className='grid gap-6'>
                 {culturalAspects.map((aspect, index) => (
                   <Card key={index}>
-                    <CardContent className='p-6'>
-                      <div className='flex items-start space-x-4'>
-                        <div className='p-3 bg-primary-100 rounded-lg text-primary-600'>
-                          {aspect.icon}
+                    <div className='flex items-start space-x-4'>
+                      <div className='flex items-center gap-4'>
+                        <div className='flex flex-col gap-2 px-6 rounded-lg text-primary-600'>
+                          <span className='flex flex-col gap-0'>
+                            <h3 className='flex items-center gap-1 text-sm lg:text-xl font-semibold text-gray-900'>
+                              {aspect.title}
+                            </h3>
+                            <p className='text-gray-800 text-xs lg:text-base '>
+                              {aspect.description}
+                            </p>
+                          </span>
                         </div>
-                        <div className='flex-1'>
-                          <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                            {aspect.title}
-                          </h3>
-                          <p className='text-gray-800 mb-4'>
-                            {aspect.description}
-                          </p>
-                          <img
-                            src={aspect.image}
-                            alt={aspect.title}
-                            className='w-full h-48 object-cover rounded-lg'
-                          />
-                        </div>
+
+                        <img
+                          src={aspect.image}
+                          alt={aspect.title}
+                          className='w-1/2 h-auto object-cover rounded-lg'
+                        />
                       </div>
-                    </CardContent>
+                    </div>
                   </Card>
                 ))}
               </div>

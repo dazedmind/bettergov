@@ -25,9 +25,6 @@ const JoinUsStrip: FC = () => {
         <div className='flex flex-col sm:flex-row items-center justify-between gap-2'>
           <div className='flex items-center gap-3'>
             <div className='flex items-center gap-2'>
-              <div className='p-1.5 bg-yellow-300/30 rounded-full'>
-                <UsersIcon className='h-4 w-4 text-yellow-200' />
-              </div>
               <span className='font-bold text-sm'>
                 {t('joinUs.stripTitle')}
               </span>

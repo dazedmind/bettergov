@@ -90,6 +90,7 @@ export interface WeatherData {
   humidity: number;
   windSpeed: number;
   description: string;
+  icon: string;
 }
 
 export interface ForexData {
@@ -101,11 +102,13 @@ export interface ForexData {
 }
 
 export interface NewsItem {
+  id: string;
   title: string;
-  summary: string;
-  url: string;
-  publishedAt: string;
-  source: string;
+  excerpt: string;
+  content: string;
+  date: string;
+  category: string;
+  imageUrl: string;
 }
 
 export interface BlogPost {

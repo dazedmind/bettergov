@@ -40,7 +40,7 @@ const PhilippinesHistory: FC = () => {
   return (
     <div className='min-h-screen bg-gray-50'>
       {/* Hero Section */}
-      <div className='relative h-[60vh] overflow-hidden'>
+      <div className='relative h-[60vh] overflow-hidden lg:px-12'>
         <div className='absolute inset-0'>
           <img
             src='https://images.pexels.com/photos/19376770/pexels-photo-19376770/free-photo-of-women-dancing-in-red-traditional-clothing-in-festival.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
@@ -51,7 +51,7 @@ const PhilippinesHistory: FC = () => {
           <div className='absolute inset-0 bg-black/50' />
         </div>
         <div className='relative h-full flex items-center'>
-          <div className='container mx-auto px-4'>
+          <div className='container mx-auto px-4 lg:px-24'>
             <div className='max-w-3xl'>
               <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6'>
                 {t('history.hero.title')}
@@ -70,7 +70,7 @@ const PhilippinesHistory: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className='container mx-auto px-4 py-12'>
+      <div className='container mx-auto px-4 py-12 lg:px-24'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Timeline */}
           <div className='lg:col-span-2'>

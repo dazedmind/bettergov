@@ -7,7 +7,7 @@ const PromotionBanner: FC = () => {
   const { t } = useTranslation('common');
 
   return (
-    <section className='bg-accent-500 py-12 text-white'>
+    <section className='bg-accent-500 py-12 lg:px-24 text-white'>
       <div className='container mx-auto px-4'>
         <div className='md:flex items-center justify-between'>
           <div>

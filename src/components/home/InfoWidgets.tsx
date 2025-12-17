@@ -18,7 +18,9 @@ const InfoWidgets: FC = () => {
 
   // Function to get weather icon component
   const getWeatherIcon = (iconName: string) => {
-    const Icon = LucideIcons[iconName as keyof typeof LucideIcons];
+    const Icon = LucideIcons[
+      iconName as keyof typeof LucideIcons
+    ] as React.ComponentType<{ className?: string }>;
     return Icon ? <Icon className='h-8 w-8' /> : null;
   };
 
@@ -77,7 +79,7 @@ const InfoWidgets: FC = () => {
   }, []);
 
   return (
-    <section className='py-12 bg-gray-50'>
+    <section className='py-12 lg:px-24 bg-gray-50'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-12'>
           <h2 className='text-3xl font-bold text-gray-900 mb-4'>
@@ -89,7 +91,7 @@ const InfoWidgets: FC = () => {
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
           {/* Weather Widget */}
-          <Card>
+          <Card className='shadow-md'>
             <CardHeader className='bg-primary-50'>
               <h3 className='text-xl font-semibold text-gray-900 flex items-center'>
                 <LucideIcons.Cloud className='h-5 w-5 mr-2 text-primary-600' />
@@ -154,7 +156,7 @@ const InfoWidgets: FC = () => {
           </Card>
 
           {/* Forex Widget */}
-          <Card>
+          <Card className='shadow-md'>
             <CardHeader className='bg-primary-50'>
               <h3 className='text-xl font-semibold text-gray-900 flex items-center'>
                 <LucideIcons.BarChart3 className='h-5 w-5 mr-2 text-primary-600' />
