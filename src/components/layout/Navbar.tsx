@@ -251,6 +251,9 @@ const Navbar: FC = () => {
                   </Link>
                   {item.children && (
                     <div
+                      style={{
+                        WebkitTransform: 'translate3d(0,0,0)',
+                      }}
                       className={`absolute left-0 w-56 rounded-md shadow-lg bg-white ring-1 ring-black/5 transition-[opacity] duration-200 z-50 pt-2 ${
                         hoveredDropdown === item.label
                           ? 'opacity-100 visible pointer-events-auto'
