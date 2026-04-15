@@ -5,7 +5,7 @@ import {
   SearchIcon,
   XIcon,
 } from 'lucide-react';
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { mainNavigation } from '../../data/navigation';
@@ -113,12 +113,31 @@ const Navbar: FC = () => {
     return normalizedHref !== '/' && normalizedPath === normalizedHref;
   };
 
+  const closeTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
+
+  React.useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const handleDropdownMouseEnter = (label: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
     setHoveredDropdown(label);
   };
 
   const handleDropdownMouseLeave = () => {
-    setHoveredDropdown(null);
+    closeTimeoutRef.current = setTimeout(() => {
+      setHoveredDropdown(null);
+      closeTimeoutRef.current = null;
+    }, 80);
   };
 
   if (location.pathname === '/philippines/map') return null;
@@ -136,10 +155,11 @@ const Navbar: FC = () => {
               🚀 Join Us
             </Link>
             <Link
-              to='/about'
+              to='https://about.bettergov.ph'
+              target='_blank'
               className='inline-flex items-center text-gray-800 hover:text-primary-600 transition-colors whitespace-nowrap min-[340px]:max-[374px]:order-2'
             >
-              About <span className='hidden md:inline'>BetterGov.ph</span>
+              About
             </Link>
             <a
               href='https://www.gov.ph'
@@ -180,14 +200,14 @@ const Navbar: FC = () => {
       </div>
 
       {/* Main navigation */}
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto px-1 md:px-4'>
         <div className='flex justify-between items-center py-4'>
           <div className='flex items-center shrink-0'>
             <Link to='/' className='flex items-center'>
               <img
                 src='/logos/svg/BetterGov_Icon-Primary.svg'
                 alt='BetterGov Logo'
-                className='h-12 w-12 mr-3'
+                className='h-12 w-12 mr-1 md:mr-3'
               />
               <div>
                 <div className='text-black font-bold'>BetterGov.ph</div>
@@ -232,10 +252,13 @@ const Navbar: FC = () => {
                   </Link>
                   {item.children && (
                     <div
-                      className={`absolute left-0 mt-2 lg:mt-0 w-56 rounded-md shadow-lg bg-white ring-1 ring-black/5 transition-all duration-200 z-50 ${
+                      style={{
+                        WebkitTransform: 'translate3d(0,0,0)',
+                      }}
+                      className={`absolute left-0 w-56 rounded-md shadow-lg bg-white ring-1 ring-black/5 transition-[opacity] duration-200 z-50 pt-2 ${
                         hoveredDropdown === item.label
-                          ? 'opacity-100 visible'
-                          : 'opacity-0 invisible'
+                          ? 'opacity-100 visible pointer-events-auto'
+                          : 'opacity-0 invisible pointer-events-none'
                       }`}
                     >
                       <div
@@ -347,7 +370,7 @@ const Navbar: FC = () => {
             🚀 Join Us
           </Link>
           <Link
-            to='/about'
+            to='https://about.bettergov.ph'
             onClick={closeMenu}
             className='flex items-center px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500'
           >
